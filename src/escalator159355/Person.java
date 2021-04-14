@@ -13,8 +13,15 @@ public class Person implements Runnable{
 
 	@Override
 	public void run() {
-		lift.loadLift(travelDirection);
+	
+			lift.loadLift(travelDirection);
 		
+			try {
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e) {
+				
+			}		
 	}
 
 }

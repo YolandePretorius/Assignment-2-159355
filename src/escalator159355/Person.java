@@ -14,14 +14,20 @@ public class Person implements Runnable{
 	@Override
 	public void run() {
 	
-			lift.loadLift(travelDirection);
-		
+			//lift.loadLift(travelDirection);
+		if(Thread.currentThread().isInterrupted()) {
+			return;
+		}else {
 			try {
-				Thread.sleep(2000);
+				//System.out.println("THREAD ENTERING =========" + Thread.currentThread().getName());
+				lift.loadLift(travelDirection);
+				//System.out.println("++++++++++++THREAD EXIT" + Thread.currentThread().getName());
+				Thread.sleep(300);		
 			} 
 			catch (InterruptedException e) {
-				
-			}		
+				return;
+			}	
+		}
 	}
 
 }
